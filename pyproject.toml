@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "mem-watch"
+version = "0.1.0"
+description = "Monitor process memory usage with configurable threshold alerts and usage history tracking"
+authors = ["mem-watch"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "mem_watch", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+psutil = "^5.9.0"
+rich = "^13.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pytest-cov = "^4.0.0"
+
+[tool.poetry.scripts]
+mem-watch = "mem_watch.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
